@@ -5,14 +5,6 @@ It demonstrates how to configure cross-database connections, create database lin
 
 ---
 
-## Author Information
-
-- **Name:** Shubham Kumar  
-- **Course:** MCA (Regular)  
-- **Project:** Database Connectivity  
-
----
-
 ## Databases & Tools Used
 
 - Oracle Database 11g
@@ -56,7 +48,7 @@ It demonstrates how to configure cross-database connections, create database lin
 
 ### Edit `initdg4odbc.ora`
 Location:
-```
+```cmd
 C:\oraclexe\app\oracle\product\11.2.0\server\hs\admin
 ```
 
@@ -77,7 +69,7 @@ initpsqlConnect.ora
 ### Edit `listener.ora`
 
 Add:
-```yml
+```json
 (SID_DESC =
   (SID_NAME = psqlConnect)     
   (ORACLE_HOME = C:\oraclexe\app\oracle\product\11.2.0\server)     
@@ -150,7 +142,7 @@ SELECT * FROM "author"@PS_LINK;
 ## Oracle Configuration
 
 ### Edit `initdg4odbc.ora`
-```gradle
+```properties
 HS_FDS_CONNECT_INFO = mysqlConnect
 HS_FDS_TRACE_LEVEL = OFF
 ```
