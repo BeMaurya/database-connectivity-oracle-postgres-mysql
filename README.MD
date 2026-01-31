@@ -62,7 +62,7 @@ C:\oraclexe\app\oracle\product\11.2.0\server\hs\admin
 
 
 Modify:
-```
+```properties
 HS_FDS_CONNECT_INFO = psqlConnect
 HS_FDS_TRACE_LEVEL = OFF
 ```
@@ -89,7 +89,7 @@ Add:
 ### Edit `tnsnames.ora`
 
 Add:
-```
+```yml
 psqlConnect =
      (DESCRIPTION =
           (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))
@@ -103,14 +103,14 @@ psqlConnect =
 ### Restart Listener
 
 In Command Prompt(Admistrative Access)
-```
+```cmd
 lsnrctl
 stop
 start
 exit
 ```
 Test:
-```
+```cmd
 tnsping psqlConnect
 ```
 ---
@@ -150,7 +150,7 @@ SELECT * FROM "author"@PS_LINK;
 ## Oracle Configuration
 
 ### Edit `initdg4odbc.ora`
-```
+```gradle
 HS_FDS_CONNECT_INFO = mysqlConnect
 HS_FDS_TRACE_LEVEL = OFF
 ```
