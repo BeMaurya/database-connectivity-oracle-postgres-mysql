@@ -77,7 +77,7 @@ initpsqlConnect.ora
 ### Edit `listener.ora`
 
 Add:
-```
+```yml
 (SID_DESC =
   (SID_NAME = psqlConnect)     
   (ORACLE_HOME = C:\oraclexe\app\oracle\product\11.2.0\server)     
@@ -117,7 +117,9 @@ tnsping psqlConnect
 
 ## Create Database Link (Oracle)
 ```sql
-CREATE PUBLIC DATABASE LINK PS_LINK CONNECT TO "postgres" IDENTIFIED BY "admin" USING 'psqlConnect';
+CREATE PUBLIC DATABASE 
+LINK PS_LINK CONNECT TO "postgres" 
+IDENTIFIED BY "admin" USING 'psqlConnect';
 ```
 ---
 
@@ -158,7 +160,7 @@ Save as: ### initmysqlConnect.ora
 ---
 
 ### Edit `listener.ora`
-```
+```yml
 (SID_DESC =
     (SID_NAME = mysqlConnect)
     (ORACLE_HOME = C:\oraclexe\app\oracle\product\11.2.0\server)
@@ -168,7 +170,7 @@ Save as: ### initmysqlConnect.ora
 ---
 
 ### Edit `tnsnames.ora`
-```
+```yml
 mysqlConnect =
   (DESCRIPTION =
       (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))
@@ -180,7 +182,9 @@ mysqlConnect =
 
 ## Create Database Link
 ```sql
-CREATE PUBLIC DATABASE LINK MYSQL_LINK CONNECT TO "root" IDENTIFIED BY "admin" USING 'mysqlConnect';
+CREATE PUBLIC DATABASE LINK MYSQL_LINK 
+CONNECT TO "root" 
+IDENTIFIED BY "admin" USING 'mysqlConnect';
 ```
 
 ---
@@ -212,20 +216,27 @@ C:\Program Files\PostgreSQL\12\share\extension
 CREATE EXTENSION oracle_fdw;
 ```
 ```sql
-CREATE SERVER oradb FOREIGN DATA WRAPPER oracle_fdw OPTIONS (dbserver 'localhost');
+CREATE SERVER oradb 
+FOREIGN DATA WRAPPER oracle_fdw 
+OPTIONS (dbserver 'localhost');
 ```
 ```sql
 GRANT USAGE ON FOREIGN SERVER oradb TO postgres;
 ```
 ```sql
-CREATE USER MAPPING FOR postgres SERVER oradb OPTIONS (USER 'SYSTEM', PASSWORD 'admin');
+CREATE USER MAPPING FOR postgres 
+SERVER oradb 
+OPTIONS (USER 'SYSTEM', PASSWORD 'admin');
 ```
 
 ---
 
 ## Create Foreign Table
 ```sql
-CREATE FOREIGN TABLE O_AUTHOR(author_id VARCHAR(5), author_name VARCHAR(30)) SERVER oradb OPTIONS (table 'AUTHOR');
+CREATE FOREIGN TABLE O_AUTHOR(author_id VARCHAR(5), 
+author_name VARCHAR(30)) 
+SERVER oradb 
+OPTIONS (table 'AUTHOR');
 ```
 
 ---
@@ -251,13 +262,17 @@ SELECT * FROM O_AUTHOR;
 CREATE EXTENSION odbc_fdw;
 ```
 ```sql
-CREATE SERVER odbc_server FOREIGN DATA WRAPPER odbc_fdw OPTIONS (dsn 'mysqlConnect');
+CREATE SERVER odbc_server 
+FOREIGN DATA WRAPPER odbc_fdw 
+OPTIONS (dsn 'mysqlConnect');
 ```
 ```sql
 GRANT USAGE ON FOREIGN SERVER odbc_server TO postgres;
 ```
 ```sql
-CREATE USER MAPPING FOR postgres SERVER odbc_server OPTIONS (odbc_UID 'root', odbc_PWD '');
+CREATE USER MAPPING FOR postgres 
+SERVER odbc_server 
+OPTIONS (odbc_UID 'root', odbc_PWD '');
 ```
 
 
@@ -265,7 +280,9 @@ CREATE USER MAPPING FOR postgres SERVER odbc_server OPTIONS (odbc_UID 'root', od
 
 ## Create Foreign Tables
 ```sql
-CREATE FOREIGN TABLE M_AUTHOR(author_id VARCHAR(5),author_name VARCHAR(30)) SERVER odbc_server OPTIONS (odbc_DATABASE 'sakila', table 'AUTHOR');
+CREATE FOREIGN TABLE M_AUTHOR(author_id VARCHAR(5),
+author_name VARCHAR(30)) SERVER odbc_server 
+OPTIONS (odbc_DATABASE 'sakila', table 'AUTHOR');
 ```
 
 
@@ -273,7 +290,9 @@ CREATE FOREIGN TABLE M_AUTHOR(author_id VARCHAR(5),author_name VARCHAR(30)) SERV
 
 ## Join Queries Across Databases
 ```sql
-SELECT B.book_title, A.author_name FROM "book"@PS_LINK B JOIN "author"@MYSQL_LINK A ON B.author_id = A.author_id;
+SELECT B.book_title, A.author_name 
+FROM "book"@PS_LINK B 
+JOIN "author"@MYSQL_LINK A ON B.author_id = A.author_id;
 ```
 ---
 
@@ -287,7 +306,19 @@ SELECT B.book_title, A.author_name FROM "book"@PS_LINK B JOIN "author"@MYSQL_LIN
 
 ## License
 
-This project is created for **educational and learning purposes**.
+This project is created **strictly for educational and learning purposes**.
+
+© 2026 **bemaurya**. All rights reserved.
+
+Permission is granted **only to bemaurya** to view, use, study, and modify this
+project for personal educational purposes.
+
+**No permission is granted** to any other individual or entity to use, copy,
+modify, distribute, publish, sell, sublicense, or deploy this project, in whole
+or in part, without explicit written permission from bemaurya.
+
+This project is provided **“AS IS”**, without warranty of any kind.
+
 
 
 
