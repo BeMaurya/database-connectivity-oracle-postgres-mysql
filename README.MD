@@ -10,7 +10,6 @@ It demonstrates how to:
 
 Designed for students, learners, and Big Data enthusiasts.
 
----
 # 🚀 Features  
 - Connect Oracle ↔ PostgreSQL
 - Connect Oracle ↔ MySQL
@@ -29,7 +28,6 @@ Designed for students, learners, and Big Data enthusiasts.
   - 🧩 `oracle_fdw`
   - 🧩 `odbc_fdw`
 
----
 
 ## 📁 Project Structure
 ```text
@@ -54,7 +52,7 @@ database-connectivity-oracle-postgres-mysql/
     ├── test-oracle-connect.sql
     └── test-postgres-connect.sql
 ```
----
+
 # 1️⃣ 🐘 PostgreSQL →🟠 Oracle Connectivity
 
 ## 🧩 Software Required
@@ -78,7 +76,6 @@ database-connectivity-oracle-postgres-mysql/
    - 👤 `Username` & `Password`
 8. ✅ Click **Test**, then **Save**
 
----
 
 ## 🟠 Oracle Configuration
 
@@ -99,7 +96,6 @@ HS_FDS_TRACE_LEVEL = OFF
 💾 Save as: `initpsqlConnect.ora`
 
 
----
 
 ### 📝 Edit `listener.ora`
 
@@ -111,7 +107,6 @@ HS_FDS_TRACE_LEVEL = OFF
   (PROGRAM = dg4odbc)
 )
 ```
----
 
 ### 📝 Edit `tnsnames.ora`
 
@@ -124,8 +119,6 @@ psqlConnect =
           (HS = OK)
       )
 ```
-
----
 
 ### 🔄 Restart Oracle Listener
 
@@ -147,7 +140,7 @@ exit
 tnsping psqlConnect
 ```
 💡 Tip: If `tnsping` fails, re-check `listener.ora` and `tnsnames.ora`.
----
+
 
 ## 🔗 Create Database Link (Oracle)
 ```sql
@@ -155,14 +148,13 @@ CREATE PUBLIC DATABASE
 LINK PS_LINK CONNECT TO "postgres" 
 IDENTIFIED BY "admin" USING 'psqlConnect';
 ```
----
+
 
 ## 📊 Query PostgreSQL Table from Oracle
 ```sql
 SELECT * FROM "author"@PS_LINK;
 ```
 
----
 
 # 2️⃣ 🐬 MySQL → 🟠 Oracle Connectivity
 
@@ -179,7 +171,6 @@ SELECT * FROM "author"@PS_LINK;
 - 👤 User: `root`
 - 🗄️ Database: `sakila`
 
----
 
 ## 🟠 Oracle Configuration
 
@@ -191,7 +182,6 @@ HS_FDS_TRACE_LEVEL = OFF
 
 💾 Save as: `initpsqlConnect.ora`
 
----
 
 ### 📝 Edit `listener.ora`
 ```ini
@@ -201,7 +191,6 @@ HS_FDS_TRACE_LEVEL = OFF
     (PROGRAM = dg4odbc)
 )
 ```
----
 
 ### 📝 Edit `tnsnames.ora`
 ```ini
@@ -212,7 +201,6 @@ mysqlConnect =
       (HS = OK)
   )
 ```
----
 
 ## 🔗 Create Database Link
 ```sql
@@ -221,14 +209,10 @@ CONNECT TO "root"
 IDENTIFIED BY "admin" USING 'mysqlConnect';
 ```
 
----
-
 ## 📊 Query MySQL Table from Oracle
 ```sql
 SELECT * FROM "book"@MYSQL_LINK;
 ```
-
----
 
 # 3️⃣ 🟠 Oracle → 🐘 PostgreSQL Connectivity (oracle_fdw)
 
@@ -252,7 +236,6 @@ This section installs `oracle_fdw` to enable Oracle → PostgreSQL connectivity.
   ```powershell
   C:\Program Files\PostgreSQL\12\share\extension
   ```
----
 
 ## 🐘 PostgreSQL Configuration
 ```sql
@@ -272,7 +255,6 @@ SERVER oradb
 OPTIONS (USER 'SYSTEM', PASSWORD 'admin');
 ```
 
----
 
 ## 🗂️ Create Foreign Table
 ```sql
@@ -282,15 +264,11 @@ SERVER oradb
 OPTIONS (table 'AUTHOR');
 ```
 
----
-
 ## 📊 Query Oracle Table from PostgreSQL
 ```sql
 SELECT * FROM O_AUTHOR;
 ```
 
-
----
 
 # 4️⃣ 🐬 MySQL → 🐘 PostgreSQL Connectivity (odbc_fdw)
 This section covers the installation and configuration of `odbc_fdw` to enable PostgreSQL to access MySQL tables using ODBC-based foreign data wrappers.
@@ -302,7 +280,6 @@ This section covers the installation and configuration of `odbc_fdw` to enable P
 - ➡️ Download `fdw_win64_12.zip`
 - ➡️ 📁 Copy files to PostgreSQL `lib` and `extension` directories
 
----
 
 ## 🐘 PostgreSQL Configuration
 ```sql
@@ -322,9 +299,6 @@ SERVER odbc_server
 OPTIONS (odbc_UID 'root', odbc_PWD '');
 ```
 
-
----
-
 ## 🗂️ Create Foreign Table
 ```sql
 CREATE FOREIGN TABLE M_AUTHOR(author_id VARCHAR(5),
@@ -332,16 +306,12 @@ author_name VARCHAR(30)) SERVER odbc_server
 OPTIONS (odbc_DATABASE 'sakila', table 'AUTHOR');
 ```
 
-
----
-
 ## 🔗 Join Queries Across Databases
 ```sql
 SELECT B.book_title, A.author_name 
 FROM "book"@PS_LINK B 
 JOIN "author"@MYSQL_LINK A ON B.author_id = A.author_id;
 ```
----
 
 ## ✅ Project Outcome
 
