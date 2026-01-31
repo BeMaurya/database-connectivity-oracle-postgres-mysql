@@ -48,7 +48,7 @@ It demonstrates how to configure cross-database connections, create database lin
 
 ### Edit `initdg4odbc.ora`
 Location:
-```cmd
+```powershell
 C:\oraclexe\app\oracle\product\11.2.0\server\hs\admin
 ```
 
