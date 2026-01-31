@@ -313,12 +313,6 @@ FROM "book"@PS_LINK B
 JOIN "author"@MYSQL_LINK A ON B.author_id = A.author_id;
 ```
 
-## ✅ Project Outcome
-
-- ✅ Successfully connected Oracle, PostgreSQL, and MySQL
-- 🔄 Executed cross-database queries and joins
-- 🌍 Demonstrated real-world heterogeneous database integration
-
 ## ❤️ Contributions
 Contributions are welcome!
 Fork the repo → Create a branch → Add feature → Submit PR
