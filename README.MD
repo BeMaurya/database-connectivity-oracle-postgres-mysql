@@ -241,15 +241,12 @@ This section installs `oracle_fdw` to enable Oracle → PostgreSQL connectivity.
 - 🧩 Compatible **`oracle_fdw`** build  
 
 ### ⬇️ Installation Steps
-
-  ➡️ **Download** `oracle_fdw`
-
-  ➡️ 📁 **Copy `.dll` files** to:
+- ➡️ **Download** `oracle_fdw`
+- ➡️ 📁 **Copy `.dll` files** to:
   ```powershell
   C:\Program Files\PostgreSQL\12\lib
   ```
-
-  ➡️ 📁 Copy extension files to:
+- ➡️ 📁 Copy extension files to:
   ```powershell
   C:\Program Files\PostgreSQL\12\share\extension
   ```
@@ -295,9 +292,13 @@ SELECT * FROM O_AUTHOR;
 
 # 4️⃣ 🐬 MySQL → 🐘 PostgreSQL Connectivity (odbc_fdw)
 This section covers the installation and configuration of `odbc_fdw` to enable PostgreSQL to access MySQL tables using ODBC-based foreign data wrappers.
+### 🧱 Prerequisites
+- 🐘 **PostgreSQL 12** installed  
+- 🐬 **MySQL 8.0** available  
+- 🔗 Compatible **ODBC Driver** build  
 ## 📦 Installation Steps
-➡️ Download `fdw_win64_12.zip`
-➡️ 📁 Copy files to PostgreSQL `lib` and `extension` directories
+- ➡️ Download `fdw_win64_12.zip`
+- ➡️ 📁 Copy files to PostgreSQL `lib` and `extension` directories
 
 ---
 
