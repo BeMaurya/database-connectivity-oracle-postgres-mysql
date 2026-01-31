@@ -10,18 +10,21 @@ It demonstrates how to configure cross-database connections, create database lin
 - Sample configurations for TNS, listener, ODBC
 - Scripts for testing database connections
 
-## Databases & Tools Used  
-- Oracle Database 11g
-- PostgreSQL 12
-- MySQL 8.0
-- ODBC Drivers
-  - PostgreSQL ANSI Driver
-  - MySQL ODBC 8.0 ANSI Driver
-- Foreign Data Wrappers
-  - `oracle_fdw`
-  - `odbc_fdw`
+## 🧰 Databases & Tools Used 
+- 🟠 Oracle Database 11g
+- 🐘 PostgreSQL 12
+- 🐬 MySQL 8.0
+- 🔌ODBC Drivers
+  - 🔗 PostgreSQL ANSI Driver
+  - 🔗 MySQL ODBC 8.0 ANSI Driver
+  - ⚙️ DG4ODBC (Oracle Heterogeneous Services)
+- 🧩 Foreign Data Wrappers
+  - 🧩 `oracle_fdw`
+  - 🧩 `odbc_fdw`
 
 ---
+
+## 📁 Project Structure
 ```text
 database-connectivity-oracle-postgres-mysql/
 ├── README.MD
@@ -44,7 +47,7 @@ database-connectivity-oracle-postgres-mysql/
     ├── test-oracle-connect.sql
     └── test-postgres-connect.sql
 ```
-
+---
 # 1. PostgreSQL → Oracle Connectivity
 
 ## Software Required
