@@ -349,8 +349,8 @@ JOIN "author"@MYSQL_LINK A ON B.author_id = A.author_id;
 
 
 <div align="center">
-<p>🔷 This project is created strictly for educational and learning purposes.</p>
+<p>📘 This project is created strictly for educational and learning purposes.</p>
 <p>⭐ If you find this project helpful, feel free to star the repository!</p>
-<p>© 2026 <strong>BeMaurya</strong>. All rights reserved.</p>
+<p>© 2026 <strong><a href = "https://bemaurya.github.io">BeMaurya</a></strong>. All rights reserved.</p>
 </div>
 
