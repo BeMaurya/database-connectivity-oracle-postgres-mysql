@@ -328,9 +328,13 @@ JOIN "author"@MYSQL_LINK A ON B.author_id = A.author_id;
 - 🔄 Executed cross-database queries and joins
 - 🌍 Demonstrated real-world heterogeneous database integration
 
----
 
-## License
+
+
+
 <p align="center">
-  © 2026 <strong>bemaurya</strong>. All rights reserved.
+  📘 This project is created strictly for educational and learning purposes.
+</p>
+<p align="center">
+  © 2026 <strong><a href = "https://bemaurya.github.com">BeMaurya</a></strong>. All rights reserved.
 </p>
