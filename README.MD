@@ -116,7 +116,7 @@ tnsping psqlConnect
 ---
 
 ## Create Database Link (Oracle)
-```
+```sql
 CREATE PUBLIC DATABASE LINK PS_LINK CONNECT TO "postgres" IDENTIFIED BY "admin" USING 'psqlConnect';
 ```
 
