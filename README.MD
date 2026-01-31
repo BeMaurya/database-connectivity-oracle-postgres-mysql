@@ -60,10 +60,7 @@ HS_FDS_TRACE_LEVEL = OFF
 ```
 
 
-Save as:
-```text
-initpsqlConnect.ora
-```
+Save as: `initpsqlConnect.ora`
 
 
 ---
@@ -99,12 +96,18 @@ psqlConnect =
 In Command Prompt(Admistrative Access)
 ```cmd
 lsnrctl
+```
+```cmd
 stop
+```
+```cmd
 start
+```
+```cmd
 exit
 ```
 Test:
-```cmd
+```powershell
 tnsping psqlConnect
 ```
 ---
