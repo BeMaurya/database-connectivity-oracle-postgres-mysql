@@ -242,15 +242,17 @@ This section installs `oracle_fdw` to enable Oracle → PostgreSQL connectivity.
 
 ### ⬇️ Installation Steps
 
-➡️ **Download** `oracle_fdw`
+  ➡️ **Download** `oracle_fdw`
 
-➡️ 📁 **Copy `.dll` files** to:
-```powershell
-C:\Program Files\PostgreSQL\12\lib
-➡️ 📁 Copy extension files to:
-```powershell
-C:\Program Files\PostgreSQL\12\share\extension
+  ➡️ 📁 **Copy `.dll` files** to:
+  ```powershell
+  C:\Program Files\PostgreSQL\12\lib
+  ```
 
+  ➡️ 📁 Copy extension files to:
+  ```powershell
+  C:\Program Files\PostgreSQL\12\share\extension
+  ```
 ---
 
 ## 🐘 PostgreSQL Configuration
