@@ -179,14 +179,14 @@ mysqlConnect =
 ---
 
 ## Create Database Link
-```
+```sql
 CREATE PUBLIC DATABASE LINK MYSQL_LINK CONNECT TO "root" IDENTIFIED BY "admin" USING 'mysqlConnect';
 ```
 
 ---
 
 ## Query MySQL Table from Oracle
-```
+```sql
 SELECT * FROM "book"@MYSQL_LINK;
 ```
 
@@ -208,30 +208,30 @@ C:\Program Files\PostgreSQL\12\share\extension
 ---
 
 ## PostgreSQL Configuration
-```
+```sql
 CREATE EXTENSION oracle_fdw;
 ```
-```
+```sql
 CREATE SERVER oradb FOREIGN DATA WRAPPER oracle_fdw OPTIONS (dbserver 'localhost');
 ```
-```
+```sql
 GRANT USAGE ON FOREIGN SERVER oradb TO postgres;
 ```
-```
+```sql
 CREATE USER MAPPING FOR postgres SERVER oradb OPTIONS (USER 'SYSTEM', PASSWORD 'admin');
 ```
 
 ---
 
 ## Create Foreign Table
-```
+```sql
 CREATE FOREIGN TABLE O_AUTHOR(author_id VARCHAR(5), author_name VARCHAR(30)) SERVER oradb OPTIONS (table 'AUTHOR');
 ```
 
 ---
 
 ## Query Oracle Table from PostgreSQL
-```
+```sql
 SELECT * FROM O_AUTHOR;
 ```
 
@@ -247,16 +247,16 @@ SELECT * FROM O_AUTHOR;
 ---
 
 ## PostgreSQL Configuration
-```
+```sql
 CREATE EXTENSION odbc_fdw;
 ```
-```
+```sql
 CREATE SERVER odbc_server FOREIGN DATA WRAPPER odbc_fdw OPTIONS (dsn 'mysqlConnect');
 ```
-```
+```sql
 GRANT USAGE ON FOREIGN SERVER odbc_server TO postgres;
 ```
-```
+```sql
 CREATE USER MAPPING FOR postgres SERVER odbc_server OPTIONS (odbc_UID 'root', odbc_PWD '');
 ```
 
@@ -264,7 +264,7 @@ CREATE USER MAPPING FOR postgres SERVER odbc_server OPTIONS (odbc_UID 'root', od
 ---
 
 ## Create Foreign Tables
-```
+```sql
 CREATE FOREIGN TABLE M_AUTHOR(author_id VARCHAR(5),author_name VARCHAR(30)) SERVER odbc_server OPTIONS (odbc_DATABASE 'sakila', table 'AUTHOR');
 ```
 
@@ -272,7 +272,7 @@ CREATE FOREIGN TABLE M_AUTHOR(author_id VARCHAR(5),author_name VARCHAR(30)) SERV
 ---
 
 ## Join Queries Across Databases
-```
+```sql
 SELECT B.book_title, A.author_name FROM "book"@PS_LINK B JOIN "author"@MYSQL_LINK A ON B.author_id = A.author_id;
 ```
 ---
