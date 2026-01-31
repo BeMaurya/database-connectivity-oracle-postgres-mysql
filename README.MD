@@ -243,10 +243,12 @@ This section installs `oracle_fdw` to enable Oracle → PostgreSQL connectivity.
 ### ⬇️ Installation Steps
 - ➡️ **Download** `oracle_fdw`
 - ➡️ 📁 **Copy `.dll` files** to:
+
   ```powershell
   C:\Program Files\PostgreSQL\12\lib
   ```
 - ➡️ 📁 Copy extension files to:
+
   ```powershell
   C:\Program Files\PostgreSQL\12\share\extension
   ```
@@ -347,7 +349,10 @@ JOIN "author"@MYSQL_LINK A ON B.author_id = A.author_id;
 - 🔄 Executed cross-database queries and joins
 - 🌍 Demonstrated real-world heterogeneous database integration
 
-
+## ❤️ Contributions
+Contributions are welcome!
+Fork the repo → Create a branch → Add feature → Submit PR
+</br></br>
 <div align="center">
 <p>📘 This project is created strictly for educational and learning purposes.</p>
 <p>⭐ If you find this project helpful, feel free to star the repository!</p>
