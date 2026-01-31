@@ -1,7 +1,14 @@
-# 🧰 Database Connectivity: 🟠 Oracle, 🐘 PostgreSQL & 🐬 MySQL
+# 💼 Database Connectivity: 🟠 Oracle · 🐘 PostgreSQL · 🐬 MySQL
 
 This repository documents **step-by-step database connectivity** between **Oracle 11g**, **PostgreSQL**, and **MySQL** using **ODBC drivers** and **Foreign Data Wrappers (FDW)**.  
-It demonstrates how to configure cross-database connections, create database links, and perform queries and joins across heterogeneous databases.
+
+It demonstrates how to:
+- 🔗 Configure heterogeneous database connections
+- 🧩 Create Oracle database links
+- 🗂️ Set up foreign servers and foreign tables
+- 🔄 Execute cross-database queries and joins
+
+Designed for students, learners, and Big Data enthusiasts.
 
 ---
 # 🚀 Features  
@@ -65,10 +72,10 @@ database-connectivity-oracle-postgres-mysql/
 6. 🔗 Select **PostgreSQL ODBC Driver (ANSI)**
 7. ⚙️ Configure:
    - 🏷️ Data Source Name: `psqlConnect`
-   - 🗄️ Database: postgres
-   - 🌐 Server: localhost
-   - 🔢 Port: 5432
-   - 👤 Username & Password
+   - 🗄️ Database: `postgres`
+   - 🌐 Server: `localhost`
+   - 🔢 Port: `5432`
+   - 👤 `Username` & `Password`
 8. ✅ Click **Test**, then **Save**
 
 ---
@@ -122,7 +129,7 @@ psqlConnect =
 
 ### 🔄 Restart Oracle Listener
 
-Run Command Prompt As Admistrative Access
+⌨️ Run Command Prompt As Admistrative Access
 ```cmd
 lsnrctl
 ```
@@ -135,10 +142,11 @@ start
 ```cmd
 exit
 ```
-✅ Test Connection:
+✅ Verify Listener Status:
 ```powershell
 tnsping psqlConnect
 ```
+💡 Tip: If `tnsping` fails, re-check `listener.ora` and `tnsnames.ora`.
 ---
 
 ## 🔗 Create Database Link (Oracle)
@@ -224,16 +232,24 @@ SELECT * FROM "book"@MYSQL_LINK;
 
 # 3️⃣ 🟠 Oracle → 🐘 PostgreSQL Connectivity (oracle_fdw)
 
-## 📦 Installation
-1. ⬇️ Download `oracle_fdw`
-2. 📁 Copy `.dll` files to:
+## 📦 Installation (`oracle_fdw`)
+This section installs `oracle_fdw` to enable Oracle → PostgreSQL connectivity.
+### 🧱 Prerequisites
+
+- 🐘 **PostgreSQL 12** installed  
+- 🟠 **Oracle Client** available  
+- 🧩 Compatible **`oracle_fdw`** build  
+
+### ⬇️ Installation Steps
+
+➡️ **Download** `oracle_fdw`
+
+➡️ 📁 **Copy `.dll` files** to:
 ```powershell
 C:\Program Files\PostgreSQL\12\lib
-```
-3. Copy extension files to:
+➡️ 📁 Copy extension files to:
 ```powershell
 C:\Program Files\PostgreSQL\12\share\extension
-```
 
 ---
 
@@ -276,10 +292,10 @@ SELECT * FROM O_AUTHOR;
 ---
 
 # 4️⃣ 🐬 MySQL → 🐘 PostgreSQL Connectivity (odbc_fdw)
-
-## 📦 Installation
-1. ⬇️ Download `fdw_win64_12.zip`
-2. 📁 Copy files to PostgreSQL `lib` and `extension` directories
+This section covers the installation and configuration of `odbc_fdw` to enable PostgreSQL to access MySQL tables using ODBC-based foreign data wrappers.
+## 📦 Installation Steps
+➡️ Download `fdw_win64_12.zip`
+➡️ 📁 Copy files to PostgreSQL `lib` and `extension` directories
 
 ---
 
