@@ -48,14 +48,14 @@ database-connectivity-oracle-postgres-mysql/
     └── test-postgres-connect.sql
 ```
 ---
-#1️⃣ 🐘 PostgreSQL →🟠 Oracle Connectivity
+# 1️⃣ 🐘 PostgreSQL →🟠 Oracle Connectivity
 
-##🧩 Software Required
+## 🧩 Software Required
 - 🟠 Oracle 11g
 - 🐘 PostgreSQL
 - 🔗 PostgreSQL ODBC ANSI Driver
 
-##🔌 ODBC Configuration (🐘 PostgreSQL)
+## 🔌 ODBC Configuration (🐘 PostgreSQL)
 
 1. 🖥️ Open **Control Panel**
 2. 🧰 Go to **Administrative Tools**
@@ -73,9 +73,9 @@ database-connectivity-oracle-postgres-mysql/
 
 ---
 
-##🟠 Oracle Configuration
+## 🟠 Oracle Configuration
 
-###📝 Edit `initdg4odbc.ora`
+### 📝 Edit `initdg4odbc.ora`
 📂 Location:
 ```powershell
 C:\oraclexe\app\oracle\product\11.2.0\server\hs\admin
@@ -94,7 +94,7 @@ HS_FDS_TRACE_LEVEL = OFF
 
 ---
 
-###📝 Edit `listener.ora`
+### 📝 Edit `listener.ora`
 
 ➕ Add:
 ```ini
@@ -106,7 +106,7 @@ HS_FDS_TRACE_LEVEL = OFF
 ```
 ---
 
-###📝 Edit `tnsnames.ora`
+### 📝 Edit `tnsnames.ora`
 
 ➕ Add:
 ```ini
@@ -120,7 +120,7 @@ psqlConnect =
 
 ---
 
-###🔄 Restart Oracle Listener
+### 🔄 Restart Oracle Listener
 
 Run Command Prompt As Admistrative Access
 ```cmd
