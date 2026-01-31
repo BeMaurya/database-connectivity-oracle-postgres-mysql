@@ -156,36 +156,36 @@ SELECT * FROM "author"@PS_LINK;
 
 ---
 
-# 2. MySQL → Oracle Connectivity
+# 2️⃣ 🐬 MySQL → 🟠 Oracle Connectivity
 
-## Software Required
-- Oracle 11g
-- MySQL 8.0
-- MySQL ODBC 8.0 ANSI Driver
+## 🧩 Software Required
+- 🟠 Oracle 11g
+- 🐬 MySQL 8.0
+- 🔗 MySQL ODBC 8.0 ANSI Driver
 
-## ODBC Configuration (MySQL)
+## 🔌 ODBC Configuration (🐬 MySQL)
 
-- Data Source Name: `mysqlConnect`
-- Server: localhost
-- Port: 3306
-- User: root
-- Database: sakila
+- 🏷️ Data Source Name: `mysqlConnect`
+- 🌐 Server: `localhost`
+- 🔢 Port: `3306`
+- 👤 User: `root`
+- 🗄️ Database: `sakila`
 
 ---
 
-## Oracle Configuration
+## 🟠 Oracle Configuration
 
-### Edit `initdg4odbc.ora`
+### 📝 Edit `initdg4odbc.ora`
 ```properties
 HS_FDS_CONNECT_INFO = mysqlConnect
 HS_FDS_TRACE_LEVEL = OFF
 ```
 
-Save as: ### initmysqlConnect.ora
+💾 Save as: ### initmysqlConnect.ora
 
 ---
 
-### Edit `listener.ora`
+### 📝 Edit `listener.ora`
 ```ini
 (SID_DESC =
     (SID_NAME = mysqlConnect)
@@ -195,7 +195,7 @@ Save as: ### initmysqlConnect.ora
 ```
 ---
 
-### Edit `tnsnames.ora`
+### 📝 Edit `tnsnames.ora`
 ```ini
 mysqlConnect =
   (DESCRIPTION =
@@ -206,7 +206,7 @@ mysqlConnect =
 ```
 ---
 
-## Create Database Link
+## 🔗 Create Database Link
 ```sql
 CREATE PUBLIC DATABASE LINK MYSQL_LINK 
 CONNECT TO "root" 
@@ -215,18 +215,18 @@ IDENTIFIED BY "admin" USING 'mysqlConnect';
 
 ---
 
-## Query MySQL Table from Oracle
+## 📊 Query MySQL Table from Oracle
 ```sql
 SELECT * FROM "book"@MYSQL_LINK;
 ```
 
 ---
 
-# 3. Oracle → PostgreSQL Connectivity (oracle_fdw)
+# 3️⃣ 🟠 Oracle → 🐘 PostgreSQL Connectivity (oracle_fdw)
 
-## Installation
-1. Download `oracle_fdw`
-2. Copy `.dll` files to:
+## 📦 Installation
+1. ⬇️ Download `oracle_fdw`
+2. 📁 Copy `.dll` files to:
 ```powershell
 C:\Program Files\PostgreSQL\12\lib
 ```
@@ -237,7 +237,7 @@ C:\Program Files\PostgreSQL\12\share\extension
 
 ---
 
-## PostgreSQL Configuration
+## 🐘 PostgreSQL Configuration
 ```sql
 CREATE EXTENSION oracle_fdw;
 ```
@@ -257,7 +257,7 @@ OPTIONS (USER 'SYSTEM', PASSWORD 'admin');
 
 ---
 
-## Create Foreign Table
+## 🗂️ Create Foreign Table
 ```sql
 CREATE FOREIGN TABLE O_AUTHOR(author_id VARCHAR(5), 
 author_name VARCHAR(30)) 
@@ -267,7 +267,7 @@ OPTIONS (table 'AUTHOR');
 
 ---
 
-## Query Oracle Table from PostgreSQL
+## 📊 Query Oracle Table from PostgreSQL
 ```sql
 SELECT * FROM O_AUTHOR;
 ```
@@ -275,15 +275,15 @@ SELECT * FROM O_AUTHOR;
 
 ---
 
-# 4. MySQL → PostgreSQL Connectivity (odbc_fdw)
+# 4️⃣ 🐬 MySQL → 🐘 PostgreSQL Connectivity (odbc_fdw)
 
-## Installation
-1. Download `fdw_win64_12.zip`
-2. Copy files to PostgreSQL `lib` and `extension` directories
+## 📦 Installation
+1. ⬇️ Download `fdw_win64_12.zip`
+2. 📁 Copy files to PostgreSQL `lib` and `extension` directories
 
 ---
 
-## PostgreSQL Configuration
+## 🐘 PostgreSQL Configuration
 ```sql
 CREATE EXTENSION odbc_fdw;
 ```
@@ -304,7 +304,7 @@ OPTIONS (odbc_UID 'root', odbc_PWD '');
 
 ---
 
-## Create Foreign Tables
+## 🗂️ Create Foreign Table
 ```sql
 CREATE FOREIGN TABLE M_AUTHOR(author_id VARCHAR(5),
 author_name VARCHAR(30)) SERVER odbc_server 
@@ -314,7 +314,7 @@ OPTIONS (odbc_DATABASE 'sakila', table 'AUTHOR');
 
 ---
 
-## Join Queries Across Databases
+## 🔗 Join Queries Across Databases
 ```sql
 SELECT B.book_title, A.author_name 
 FROM "book"@PS_LINK B 
@@ -322,47 +322,15 @@ JOIN "author"@MYSQL_LINK A ON B.author_id = A.author_id;
 ```
 ---
 
-## Project Outcome
+## ✅ Project Outcome
 
-- Successfully connected Oracle, PostgreSQL, and MySQL
-- Executed cross-database queries and joins
-- Demonstrated real-world heterogeneous database integration
+- ✅ Successfully connected Oracle, PostgreSQL, and MySQL
+- 🔄 Executed cross-database queries and joins
+- 🌍 Demonstrated real-world heterogeneous database integration
 
 ---
 
 ## License
-
-This project is created **strictly for educational and learning purposes**.
-
-© 2026 **bemaurya**. All rights reserved.
-
-Permission is granted **only to bemaurya** to view, use, study, and modify this
-project for personal educational purposes.
-
-**No permission is granted** to any other individual or entity to use, copy,
-modify, distribute, publish, sell, sublicense, or deploy this project, in whole
-or in part, without explicit written permission from bemaurya.
-
-This project is provided **“AS IS”**, without warranty of any kind.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<p align="center">
+  © 2026 <strong>bemaurya</strong>. All rights reserved.
+</p>
