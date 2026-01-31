@@ -61,7 +61,9 @@ HS_FDS_TRACE_LEVEL = OFF
 
 
 Save as:
+```text
 initpsqlConnect.ora
+```
 
 
 ---
@@ -81,7 +83,7 @@ Add:
 ### Edit `tnsnames.ora`
 
 Add:
-```yml
+```ini
 psqlConnect =
      (DESCRIPTION =
           (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))
@@ -152,7 +154,7 @@ Save as: ### initmysqlConnect.ora
 ---
 
 ### Edit `listener.ora`
-```yml
+```ini
 (SID_DESC =
     (SID_NAME = mysqlConnect)
     (ORACLE_HOME = C:\oraclexe\app\oracle\product\11.2.0\server)
@@ -162,7 +164,7 @@ Save as: ### initmysqlConnect.ora
 ---
 
 ### Edit `tnsnames.ora`
-```yml
+```ini
 mysqlConnect =
   (DESCRIPTION =
       (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))
@@ -193,11 +195,11 @@ SELECT * FROM "book"@MYSQL_LINK;
 ## Installation
 1. Download `oracle_fdw`
 2. Copy `.dll` files to:
-```
+```powershell
 C:\Program Files\PostgreSQL\12\lib
 ```
 3. Copy extension files to:
-```
+```powershell
 C:\Program Files\PostgreSQL\12\share\extension
 ```
 
