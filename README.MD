@@ -141,7 +141,7 @@ tnsping psqlConnect
 ```
 ---
 
-##🔗 Create Database Link (Oracle)
+## 🔗 Create Database Link (Oracle)
 ```sql
 CREATE PUBLIC DATABASE 
 LINK PS_LINK CONNECT TO "postgres" 
@@ -149,7 +149,7 @@ IDENTIFIED BY "admin" USING 'psqlConnect';
 ```
 ---
 
-##📊 Query PostgreSQL Table from Oracle
+## 📊 Query PostgreSQL Table from Oracle
 ```sql
 SELECT * FROM "author"@PS_LINK;
 ```
