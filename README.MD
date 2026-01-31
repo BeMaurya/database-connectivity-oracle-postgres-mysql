@@ -1,12 +1,16 @@
-# Database Connectivity: Oracle, PostgreSQL & MySQL
+# 📝 Database Connectivity: Oracle, PostgreSQL & MySQL
 
 This repository documents **step-by-step database connectivity** between **Oracle 11g**, **PostgreSQL**, and **MySQL** using **ODBC drivers** and **Foreign Data Wrappers (FDW)**.  
 It demonstrates how to configure cross-database connections, create database links, and perform queries and joins across heterogeneous databases.
 
 ---
+# 🚀 Features  
+- Connect Oracle ↔ PostgreSQL
+- Connect Oracle ↔ MySQL
+- Sample configurations for TNS, listener, ODBC
+- Scripts for testing database connections
 
-## Databases & Tools Used
-
+## Databases & Tools Used  
 - Oracle Database 11g
 - PostgreSQL 12
 - MySQL 8.0
@@ -18,6 +22,28 @@ It demonstrates how to configure cross-database connections, create database lin
   - `odbc_fdw`
 
 ---
+```text
+database-connectivity-oracle-postgres-mysql/
+├── README.MD
+├── oracle/
+│   ├── listener.ora
+│   ├── tnsnames.ora
+│   └── setup-instructions.md
+├── postgres/
+│   ├── pg_hba.conf
+│   └── setup-instructions.md
+├── mysql/
+│   └── my.cnf
+├── screenshots/
+│   ├── oracle-connect.png
+│   ├── postgres-connect.png
+│   └── mysql-connect.png
+├── docs/
+│   └── full-guide.pdf
+└── examples/
+    ├── test-oracle-connect.sql
+    └── test-postgres-connect.sql
+```
 
 # 1. PostgreSQL → Oracle Connectivity
 
