@@ -1,4 +1,4 @@
-# 📝 Database Connectivity: Oracle, PostgreSQL & MySQL
+# 🧰 Database Connectivity: 🟠 Oracle, 🐘 PostgreSQL & 🐬 MySQL
 
 This repository documents **step-by-step database connectivity** between **Oracle 11g**, **PostgreSQL**, and **MySQL** using **ODBC drivers** and **Foreign Data Wrappers (FDW)**.  
 It demonstrates how to configure cross-database connections, create database links, and perform queries and joins across heterogeneous databases.
@@ -328,12 +328,11 @@ JOIN "author"@MYSQL_LINK A ON B.author_id = A.author_id;
 - 🔄 Executed cross-database queries and joins
 - 🌍 Demonstrated real-world heterogeneous database integration
 
-
-
-
-
 <p align="center">
   📘 This project is created strictly for educational and learning purposes.
+</p>
+<p align="center">
+    ⭐ If you find this project helpful, feel free to star the repository!
 </p>
 <p align="center">
   © 2026 <strong><a href = "https://bemaurya.github.io">BeMaurya</a></strong>. All rights reserved.
