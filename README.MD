@@ -69,7 +69,7 @@ initpsqlConnect.ora
 ### Edit `listener.ora`
 
 Add:
-```json
+```md
 (SID_DESC =
   (SID_NAME = psqlConnect)     
   (ORACLE_HOME = C:\oraclexe\app\oracle\product\11.2.0\server)     
