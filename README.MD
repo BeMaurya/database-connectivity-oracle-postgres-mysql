@@ -48,55 +48,55 @@ database-connectivity-oracle-postgres-mysql/
     └── test-postgres-connect.sql
 ```
 ---
-# 1. PostgreSQL → Oracle Connectivity
+#1️⃣ 🐘 PostgreSQL →🟠 Oracle Connectivity
 
-## Software Required
-- Oracle 11g
-- PostgreSQL
-- PostgreSQL ODBC ANSI Driver
+##🧩 Software Required
+- 🟠 Oracle 11g
+- 🐘 PostgreSQL
+- 🔗 PostgreSQL ODBC ANSI Driver
 
-## ODBC Configuration (PostgreSQL)
+##🔌 ODBC Configuration (🐘 PostgreSQL)
 
-1. Open **Control Panel**
-2. Go to **Administrative Tools**
-3. Open **ODBC Data Source (32-bit / 64-bit)**
-4. Select **System DSN**
-5. Click **Add**
-6. Select **PostgreSQL ODBC Driver (ANSI)**
-7. Configure:
-   - Data Source Name: `psqlConnect`
-   - Database: postgres
-   - Server: localhost
-   - Port: 5432
-   - Username & Password
-8. Click **Test**, then **Save**
+1. 🖥️ Open **Control Panel**
+2. 🧰 Go to **Administrative Tools**
+3. ⚙️ Open **ODBC Data Source (32-bit / 64-bit)**
+4. 🗂️ Select **System DSN**
+5. ➕ Click **Add**
+6. 🔗 Select **PostgreSQL ODBC Driver (ANSI)**
+7. ⚙️ Configure:
+   - 🏷️ Data Source Name: `psqlConnect`
+   - 🗄️ Database: postgres
+   - 🌐 Server: localhost
+   - 🔢 Port: 5432
+   - 👤 Username & Password
+8. ✅ Click **Test**, then **Save**
 
 ---
 
-## Oracle Configuration
+##🟠 Oracle Configuration
 
-### Edit `initdg4odbc.ora`
-Location:
+###📝 Edit `initdg4odbc.ora`
+📂 Location:
 ```powershell
 C:\oraclexe\app\oracle\product\11.2.0\server\hs\admin
 ```
 
 
-Modify:
+✏️ Modify:
 ```properties
 HS_FDS_CONNECT_INFO = psqlConnect
 HS_FDS_TRACE_LEVEL = OFF
 ```
 
 
-Save as: `initpsqlConnect.ora`
+💾 Save as: `initpsqlConnect.ora`
 
 
 ---
 
-### Edit `listener.ora`
+###📝 Edit `listener.ora`
 
-Add:
+➕ Add:
 ```ini
 (SID_DESC =
   (SID_NAME = psqlConnect)     
@@ -106,9 +106,9 @@ Add:
 ```
 ---
 
-### Edit `tnsnames.ora`
+###📝 Edit `tnsnames.ora`
 
-Add:
+➕ Add:
 ```ini
 psqlConnect =
      (DESCRIPTION =
@@ -120,13 +120,13 @@ psqlConnect =
 
 ---
 
-### Restart Listener
+###🔄 Restart Oracle Listener
 
-In Command Prompt(Admistrative Access)
+Run Command Prompt As Admistrative Access
 ```cmd
 lsnrctl
 ```
-```cmd
+```c
 stop
 ```
 ```cmd
@@ -135,13 +135,13 @@ start
 ```cmd
 exit
 ```
-Test:
+✅ Test Connection:
 ```powershell
 tnsping psqlConnect
 ```
 ---
 
-## Create Database Link (Oracle)
+##🔗 Create Database Link (Oracle)
 ```sql
 CREATE PUBLIC DATABASE 
 LINK PS_LINK CONNECT TO "postgres" 
@@ -149,7 +149,7 @@ IDENTIFIED BY "admin" USING 'psqlConnect';
 ```
 ---
 
-## Query PostgreSQL Table from Oracle
+##📊 Query PostgreSQL Table from Oracle
 ```sql
 SELECT * FROM "author"@PS_LINK;
 ```
